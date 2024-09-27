@@ -1,70 +1,177 @@
-# Getting Started with Create React App
+# Customizable React Modal Component
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple, modular and customizable modal window component for React applications, compatible with Tailwind CSS, allowing easy management of modal windows with styling options.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+-   [Installation](#installation)
+-   [Compatibility and Dependencies](#compatibility-and-dependencies)
+-   [Usage](#usage)
+-   [Properties](#properties)
+-   [Example](#example)
+-   [Custom Styles](#custom-styles)
+-   [Customization](#customization)
+-   [License](#license)
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To install the Modal component in your React project, use npm or yarn:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+npm install react-modal-component-hw clsx lucide-react
+```
 
-### `npm test`
+or
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+yarn add react-modal-component-hw clsx lucide-react
+```
 
-### `npm run build`
+## Compatibility and Dependencies
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The Modal component relies on certain external dependencies to function properly. Here are the minimum required versions of these libraries:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-   **`clsx`** : Used to conditionally manage CSS classes. You can combine CSS or Tailwind classes via `clsx`.
 
-### `npm run eject`
+    -   Required version: `^2.1.1`
+    -   Installation:
+        ```bash
+        npm install clsx@^2.1.1
+        ```
+        Or
+        ```bash
+        yarn add clsx@^2.1.1
+        ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+-   **`lucide-react`** : Used for SVG icons, including the close icon in the modal.
+    -   Required version: `^0.446.0`
+    -   Installation:
+        ```bash
+        npm install lucide-react@^0.446.0
+        ```
+        Or
+        ```bash
+        yarn add lucide-react@^0.446.0
+        ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Compatibility
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+-   **React** : This component is compatible with React 17+ and React 18+.
+-   **Tailwind CSS (optional)** : Although Tailwind is not mandatory, the `clsx` package allows you to use Tailwind for class and style management if you wish.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Make sure you have installed these dependencies for the component to function properly in your project.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This should cover the minimum requirements for `clsx`, `lucide-react` and other aspects related to the component's compatibility.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Usage
 
-### Code Splitting
+To use the Modal component and its sub-components, import it into your file and incorporate it into your JSX code:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```jsx
+import React, { useState } from 'react';
+import { Modal, ModalContent, ModalHeader, ModalTitle, ModalDescription, ModalFooter } from 'react-modal-component-hw';
 
-### Analyzing the Bundle Size
+const App = () => {
+    const [isOpen, setIsOpen] = useState(false);
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    const toggleModal = () => {
+        setIsOpen(!isOpen);
+    };
 
-### Making a Progressive Web App
+    return (
+        <div>
+            <button onClick={toggleModal}>Open Modal</button>
+            <Modal open={isOpen}>
+                <ModalContent onClose={toggleModal}>
+                    <ModalHeader>
+                        <ModalTitle>Title of Modal</ModalTitle>
+                    </ModalHeader>
+                    <ModalDescription>This is the content of the modal.</ModalDescription>
+                    <ModalFooter>
+                        <button onClick={toggleModal}>Close Modal</button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
+        </div>
+    );
+};
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+export default App;
+```
 
-### Advanced Configuration
+## Properties
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The Modal component and its sub-components accept the following properties:
 
-### Deployment
+### Modal
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+-   `open` (required) : A boolean indicating whether the modal should be displayed or not.
+-   `className` : Additional CSS classes to customize the appearance of the modal.
 
-### `npm run build` fails to minify
+### ModalContent
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-   `onClose` (required) : A function called when the modal should be closed.
+-   `className` : Additional CSS classes to customize the content of the modal.
+-   `size` : The size of the close icon (default `25`).
+-   `stroke` : The color of the close icon (default `#000000`).
+
+### ModalHeader, ModalTitle, ModalDescription, ModalFooter
+
+-   `className` : Additional CSS classes to customize each section of the modal.
+
+## Custom Styles
+
+The Modal component allows you to add custom styles using the `clsx` package, which allows you to easily combine Tailwind classes or your own CSS classes. You don't need to use specific base classes, you can directly apply your own styles via the className properties of the different sub-components.
+
+## Customization
+
+Here is an example of using the component with custom styles:
+
+```jsx
+import { useState } from 'react';
+import { Modal, ModalContent, ModalHeader, ModalTitle, ModalDescription, ModalFooter } from 'react-modal-component-hw';
+import './styles/main.css';
+
+const App = () => {
+ const [isOpen, setIsOpen] = useState(false);
+
+    const toggleModal = () => {
+        setIsOpen(!isOpen);
+    };
+
+    return (
+        <div>
+           <button className="btn" onClick={toggleModal}>
+                Open modal
+            </button>
+            <Modal className="custom-modal" open={isOpen}>
+                <ModalContent className="custom-modal-container" onClose={toggleModal} stroke="#dfdfdf" size={32}>
+                    <ModalHeader className="custom-modal-header">
+                        <img className="custom-modal-img" src="./hero.svg" alt="hero" />
+                        <ModalTitle className="custom-modal-title">Title of Modal</ModalTitle>
+                        <ModalDescription className="custom-modal-description">This is the content of the modal.</ModalDescription>
+                    </ModalHeader>
+                    <ModalFooter className="custom-modal-footer">
+                        <button
+                            className="custom-modal-button"
+                            onClick={toggleModal}
+                        >
+                            Close Modal
+                        </button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
+    );
+};
+
+export default App;
+```
+
+## License
+
+This project is licensed under the [MIT](LICENSE).
+
