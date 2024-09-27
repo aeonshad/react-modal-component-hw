@@ -1,17 +1,37 @@
 {
     "name": "react-modal-component-hw",
-    "version": "0.1.0",
-    "private": true,
+    "version": "1.0.1",
+    "private": false,
+    "description": "A simple and customizable modal window component for React applications, compatible with Tailwind CSS, allowing easy management of modal windows with styling options.",
+    "author": "Aeonshad",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/aeonshad/react-modal-component-hw"
+    },
+    "main": "dist/modal.js",
+    "files": [
+        "dist/*"
+    ],
+    "keywords": [
+        "react",
+        "modal",
+        "component",
+        "openclassroom",
+        "HRnet",
+        "WealthHealth",
+        "customizable",
+        "UI",
+        "user interface",
+        "popup",
+        "dialog",
+        "tailwind"
+    ],
     "dependencies": {
-        "@testing-library/jest-dom": "^5.17.0",
-        "@testing-library/react": "^13.4.0",
-        "@testing-library/user-event": "^13.5.0",
         "clsx": "^2.1.1",
         "lucide-react": "^0.446.0",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
-        "react-scripts": "5.0.1",
-        "web-vitals": "^2.1.4"
+        "react-scripts": "5.0.1"
     },
     "scripts": {
         "start": "react-scripts start",
@@ -43,3 +63,4 @@
         "@babel/preset-env": "^7.25.4"
     }
 }
+
