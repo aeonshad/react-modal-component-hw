@@ -5,7 +5,7 @@
 <a href='https://www.npmjs.com/'><img alt="Static Badge" src="https://img.shields.io/badge/version-10.8.2-red?style=flat&logo=NPM&label=NPM"></a>
 <a href='https://github.com/aeonshad/react-component-hw/blob/main/LICENSE'><img alt="Static Badge" src="https://img.shields.io/badge/version-MIT-%23cfb232?style=flat&logoColor=%23b3bd68&label=License"></a>
 
-Un composant de fenêtre modale simple, modulaire et personnalisable pour les applications React, compatible avec Tailwind CSS, permettant une gestion facile des fenêtres modales avec des options de style.
+Un composant de fenêtre modale simple, modulaire et personnalisable pour les applications React, compatible avec Tailwind CSS, permettant une gestion facile des fenêtres modales avec des options de style et d'accessibilité.
 
 ## Table des matières
 
@@ -13,7 +13,7 @@ Un composant de fenêtre modale simple, modulaire et personnalisable pour les ap
 -   [Compatibilité et Dépendances](#compatibilité-et-dépendances)
 -   [Utilisation](#utilisation)
 -   [Propriétés](#propriétés)
--   [Exemple](#exemple)
+-   [Accessibilité](#accessibilité)
 -   [Styles Personnalisés](#styles-personnalisés)
 -   [Personnalisation](#personnalisation)
 -   [Licence](#licence)
@@ -112,21 +112,71 @@ export default App;
 
 Le composant Modal et ses sous-composants acceptent les propriétés suivantes :
 
-### Modal
+#### Modal
 
--   `open` (requis) : Un booléen indiquant si la modale doit être affichée ou non.
--   `className` : Des classes CSS supplémentaires pour personnaliser l'apparence de la modale.
+| Propriété         | Type        | Requis     | Description                                                                                 |
+| ----------------- | ----------- | ---------- | ------------------------------------------------------------------------------------------- |
+| `className`       | `string`    | Facultatif | Classe(s) CSS personnalisée(s) pour la modale.                                              |
+| `open`            | `boolean`   | Oui        | Indique si la modale est ouverte ou fermée.                                                 |
+| `children`        | `ReactNode` | Oui        | Contenu à afficher à l'intérieur de la modale.                                              |
+| `ariaLabelledBy`  | `string`    | Facultatif | ID de l'élément définissant le titre de la modale pour l'attribut `aria-labelledby`.        |
+| `ariaDescribedBy` | `string`    | Facultatif | ID de l'élément définissant la description de la modale pour l'attribut `aria-describedby`. |
 
-### ModalContent
+#### ModalContent
 
--   `onClose` (requis) : Une fonction appelée lorsque la modale doit être fermée.
--   `className` : Des classes CSS supplémentaires pour personnaliser le contenu de la modale.
--   `size` : La taille de l'icône de fermeture (par défaut `25`).
--   `stroke` : La couleur de l'icône de fermeture (par défaut `#000000`).
+| Propriété   | Type       | Requis     | Description                                                                              |
+| ----------- | ---------- | ---------- | ---------------------------------------------------------------------------------------- |
+| `className` | `string`   | Facultatif | Classe(s) CSS personnalisée(s) pour le contenu de la modale.                             |
+| `onClose`   | `function` | Oui        | Fonction de rappel appelée pour fermer la modale (utilisée pour le bouton de fermeture). |
+| `size`      | `number`   | Facultatif | Taille de l'icône de fermeture. Par défaut : `25`.                                       |
+| `stroke`    | `string`   | Facultatif | Couleur de l'icône de fermeture. Par défaut : `'#000000'`.                               |
+| `ariaLabel` | `string`   | Facultatif | Libellé pour l'attribut `aria-label` de l'icône de fermeture.                            |
 
-### ModalHeader, ModalTitle, ModalDescription, ModalFooter
+#### ModalHeader
 
--   `className` : Des classes CSS supplémentaires pour personnaliser chaque section de la modale.
+| Propriété   | Type        | Requis     | Description                                                 |
+| ----------- | ----------- | ---------- | ----------------------------------------------------------- |
+| `className` | `string`    | Facultatif | Classe(s) CSS personnalisée(s) pour l'en-tête de la modale. |
+| `children`  | `ReactNode` | Oui        | Contenu à afficher à l'intérieur de l'en-tête de la modale. |
+
+#### ModalTitle
+
+| Propriété   | Type        | Requis     | Description                                                                     |
+| ----------- | ----------- | ---------- | ------------------------------------------------------------------------------- |
+| `className` | `string`    | Facultatif | Classe(s) CSS personnalisée(s) pour le titre de la modale.                      |
+| `children`  | `ReactNode` | Oui        | Titre à afficher à l'intérieur de la modale.                                    |
+| `id`        | `string`    | Facultatif | ID utilisé pour l'attribut `aria-labelledby` afin de lier le titre à la modale. |
+
+#### ModalDescription
+
+| Propriété   | Type        | Requis     | Description                                                                            |
+| ----------- | ----------- | ---------- | -------------------------------------------------------------------------------------- |
+| `className` | `string`    | Facultatif | Classe(s) CSS personnalisée(s) pour la description de la modale.                       |
+| `children`  | `ReactNode` | Oui        | Description à afficher à l'intérieur de la modale.                                     |
+| `id`        | `string`    | Facultatif | ID utilisé pour l'attribut `aria-describedby` afin de lier la description à la modale. |
+
+#### ModalFooter
+
+| Propriété   | Type        | Requis     | Description                                               |
+| ----------- | ----------- | ---------- | --------------------------------------------------------- |
+| `className` | `string`    | Facultatif | Classe(s) CSS personnalisée(s) pour le pied de la modale. |
+| `children`  | `ReactNode` | Oui        | Contenu à afficher à l'intérieur du pied de la modale.    |
+
+### Accessibilité
+
+Le composant Modal inclut plusieurs fonctionnalités visant à améliorer l'accessibilité :
+
+-   Utilisation de l'attribut `role="dialog"` pour identifier la fenêtre modale comme un dialogue, améliorant ainsi l'expérience des utilisateurs de lecteurs d'écran.
+-   L'attribut `aria-modal="true"` signale aux technologies d'assistance que le contenu en arrière-plan n'est pas accessible tant que la modale est ouverte.
+-   Les attributs `aria-labelledby` et `aria-describedby` sont utilisés pour fournir des descriptions contextuelles de la modale :
+    -   `aria-labelledby` associe un élément, comme un titre de modale, au dialogue afin que le titre soit annoncé.
+    -   `aria-describedby` associe une description au dialogue, offrant un contexte supplémentaire aux utilisateurs.
+-   L'ajout de l'attribut `tabIndex="-1"` pour s'assurer que la modale est focalisée lorsque l'utilisateur navigue via le clavier.
+-   Le bouton de fermeture inclut un attribut `aria-label` pour décrire sa fonction aux utilisateurs de lecteurs d'écran.
+
+---
+
+Ces bonnes pratiques permettent une meilleure interaction avec la modale pour les utilisateurs utilisant des technologies d'assistance.
 
 ## Styles Personnalisés
 

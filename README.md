@@ -5,7 +5,7 @@
 <a href='https://www.npmjs.com/'><img alt="Static Badge" src="https://img.shields.io/badge/version-10.8.2-red?style=flat&logo=NPM&label=NPM"></a>
 <a href='https://github.com/aeonshad/react-component-hw/blob/main/LICENSE'><img alt="Static Badge" src="https://img.shields.io/badge/version-MIT-%23cfb232?style=flat&logoColor=%23b3bd68&label=License"></a>
 
-A simple, modular and customizable modal window component for React applications, compatible with Tailwind CSS, allowing easy management of modal windows with styling options.
+A simple, modular and customizable modal window component for React applications, compatible with Tailwind CSS, allowing easy management of modal windows with styling and accessibility options
 
 ## Table of Contents
 
@@ -13,7 +13,7 @@ A simple, modular and customizable modal window component for React applications
 -   [Compatibility and Dependencies](#compatibility-and-dependencies)
 -   [Usage](#usage)
 -   [Properties](#properties)
--   [Example](#example)
+-   [Accessibility](#accessibility)
 -   [Custom Styles](#custom-styles)
 -   [Customization](#customization)
 -   [License](#license)
@@ -112,21 +112,71 @@ export default App;
 
 The Modal component and its sub-components accept the following properties:
 
-### Modal
+#### Modal
 
--   `open` (required) : A boolean indicating whether the modal should be displayed or not.
--   `className` : Additional CSS classes to customize the appearance of the modal.
+| Property          | Type        | Required | Description                                                                            |
+| ----------------- | ----------- | -------- | -------------------------------------------------------------------------------------- |
+| `className`       | `string`    | Optional | Custom CSS class(es) for the modal.                                                    |
+| `open`            | `boolean`   | Yes      | Indicates if the modal is open or closed.                                              |
+| `children`        | `ReactNode` | Yes      | Content to display inside the modal.                                                   |
+| `ariaLabelledBy`  | `string`    | Optional | ID of the element defining the modal title for the `aria-labelledby` attribute.        |
+| `ariaDescribedBy` | `string`    | Optional | ID of the element defining the modal description for the `aria-describedby` attribute. |
 
-### ModalContent
+#### ModalContent
 
--   `onClose` (required) : A function called when the modal should be closed.
--   `className` : Additional CSS classes to customize the content of the modal.
--   `size` : The size of the close icon (default `25`).
--   `stroke` : The color of the close icon (default `#000000`).
+| Property    | Type       | Required | Description                                                              |
+| ----------- | ---------- | -------- | ------------------------------------------------------------------------ |
+| `className` | `string`   | Optional | Custom CSS class(es) for the modal content.                              |
+| `onClose`   | `function` | Yes      | Callback function called to close the modal (used for the close button). |
+| `size`      | `number`   | Optional | Size of the close icon. Default: `25`.                                   |
+| `stroke`    | `string`   | Optional | Color of the close icon. Default: `'#000000'`.                           |
+| `ariaLabel` | `string`   | Optional | Label for the `aria-label` attribute of the close icon.                  |
 
-### ModalHeader, ModalTitle, ModalDescription, ModalFooter
+#### ModalHeader
 
--   `className` : Additional CSS classes to customize each section of the modal.
+| Property    | Type        | Required | Description                                 |
+| ----------- | ----------- | -------- | ------------------------------------------- |
+| `className` | `string`    | Optional | Custom CSS class(es) for the modal header.  |
+| `children`  | `ReactNode` | Yes      | Content to display inside the modal header. |
+
+#### ModalTitle
+
+| Property    | Type        | Required | Description                                                                 |
+| ----------- | ----------- | -------- | --------------------------------------------------------------------------- |
+| `className` | `string`    | Optional | Custom CSS class(es) for the modal title.                                   |
+| `children`  | `ReactNode` | Yes      | Title to display inside the modal.                                          |
+| `id`        | `string`    | Optional | ID used for the `aria-labelledby` attribute to link the title to the modal. |
+
+#### ModalDescription
+
+| Property    | Type        | Required | Description                                                                        |
+| ----------- | ----------- | -------- | ---------------------------------------------------------------------------------- |
+| `className` | `string`    | Optional | Custom CSS class(es) for the modal description.                                    |
+| `children`  | `ReactNode` | Yes      | Description to display inside the modal.                                           |
+| `id`        | `string`    | Optional | ID used for the `aria-describedby` attribute to link the description to the modal. |
+
+#### ModalFooter
+
+| Property    | Type        | Required | Description                                 |
+| ----------- | ----------- | -------- | ------------------------------------------- |
+| `className` | `string`    | Optional | Custom CSS class(es) for the modal footer.  |
+| `children`  | `ReactNode` | Yes      | Content to display inside the modal footer. |
+
+### Accessibility
+
+The Modal component includes several features to improve accessibility:
+
+-   Use of the `role="dialog"` attribute to identify the modal window as a dialogue, enhancing the experience for screen reader users.
+-   The `aria-modal="true"` attribute signals to assistive technologies that the background content is not accessible while the modal is open.
+-   The `aria-labelledby` and `aria-describedby` attributes are used to provide contextual descriptions of the modal:
+    -   `aria-labelledby` associates an element, such as a modal title, with the dialogue so that the title is announced.
+    -   `aria-describedby` associates a description with the dialogue, offering additional context to users.
+-   The addition of the `tabIndex="-1"` attribute to ensure the modal is focused when the user navigates via the keyboard.
+-   The close button includes an `aria-label` attribute to describe its function to screen reader users.
+
+---
+
+These best practices enable better interaction with the modal for users utilizing assistive technologies.
 
 ## Custom Styles
 
