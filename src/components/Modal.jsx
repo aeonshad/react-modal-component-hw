@@ -1,9 +1,9 @@
 import { ReactComponent as CloseIcon } from './close-outline.svg';
 
-export const Modal = ({ className, open, children }) => (open ? <div className="modal-overlay">{children}</div> : null);
+export const Modal = ({ className, open, children }) => (open ? <div>{children}</div> : null);
 
 export const ModalContent = ({ className, onClose, children }) => (
-    <div className="modal-container">
+    <div>
         {children}
         <button onClick={onClose}>
             <CloseIcon />

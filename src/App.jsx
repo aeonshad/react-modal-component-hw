@@ -8,17 +8,15 @@ function App() {
         setIsOpen(!isOpen);
     };
     return (
-        <main className="main-container">
-            <button className="modal-btn-open primary" onClick={toggleModal}>
-                Open Modal
-            </button>
+        <main>
+            <button onClick={toggleModal}>Open Modal</button>
             <Modal open={isOpen}>
                 <ModalContent onClose={toggleModal}>
                     <ModalHeader>
-                        <ModalTitle>Test titre</ModalTitle>
-                        <ModalDescription>Description</ModalDescription>
+                        <ModalTitle>Test Title</ModalTitle>
+                        <ModalDescription>This is a test description.</ModalDescription>
                     </ModalHeader>
-                    <ModalFooter>Footer</ModalFooter>
+                    <ModalFooter>Test Footer</ModalFooter>
                 </ModalContent>
             </Modal>
         </main>
