@@ -125,7 +125,7 @@ The Modal component and its sub-components accept the following properties:
 
 ## Custom Styles
 
-The Modal component allows you to add custom styles using the `clsx` package, which allows you to easily combine Tailwind classes or your own CSS classes. You don't need to use specific base classes, you can directly apply your own styles via the className properties of the different sub-components.
+The Modal component allows you to add custom styles using the `clsx` package, which allows you to easily combine Tailwind classes or your own CSS classes. You don't need to use the component's base classes, you can directly apply your own styles via the className properties of the different sub-components.
 
 ## Customization
 
