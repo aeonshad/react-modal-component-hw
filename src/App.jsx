@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Modal, ModalContent, ModalDescription, ModalFooter, ModalHeader, ModalTitle } from './components/Modal';
+//import { Modal, ModalContent, ModalDescription, ModalFooter, ModalHeader, ModalTitle } from './components/Modal';
+import { Modal, ModalContent, ModalDescription, ModalFooter, ModalHeader, ModalTitle } from 'react-modal-component-hw/dist/Modal';
 import './styles/reset.css';
 import './styles/main.css';
 

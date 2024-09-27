@@ -1,6 +1,6 @@
 {
     "name": "react-modal-component-hw",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "private": false,
     "description": "A simple, modular and customizable modal window component for React applications, compatible with Tailwind CSS, allowing easy management of modal windows with styling and accessibility options",
     "author": "Aeonshad",
@@ -9,7 +9,7 @@
         "type": "git",
         "url": "https://github.com/aeonshad/react-modal-component-hw"
     },
-    "main": "dist/modal.js",
+    "main": "dist/Modal.js",
     "files": [
         "dist/*"
     ],
