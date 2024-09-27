@@ -1,5 +1,10 @@
 # Customizable React Modal Component
 
+<a href='https://github.com/aeonshad/react-component-hw/blob/main/README.fr.md'><img alt="Static Badge" src="https://img.shields.io/badge/version-French%7CFran%C3%A7ais-%2322802b?style=flat&logo=readme&logoColor=%23b3bd68&label=Readme"></a>
+<a href='https://fr.react.dev/'><img alt="Static Badge" src="https://img.shields.io/badge/version-18.3.1-blue?style=flat&logo=React&label=React"></a>
+<a href='https://www.npmjs.com/'><img alt="Static Badge" src="https://img.shields.io/badge/version-10.8.2-red?style=flat&logo=NPM&label=NPM"></a>
+<a href='https://github.com/aeonshad/react-component-hw/blob/main/LICENSE'><img alt="Static Badge" src="https://img.shields.io/badge/version-MIT-%23cfb232?style=flat&logoColor=%23b3bd68&label=License"></a>
+
 A simple, modular and customizable modal window component for React applications, compatible with Tailwind CSS, allowing easy management of modal windows with styling options.
 
 ## Table of Contents
