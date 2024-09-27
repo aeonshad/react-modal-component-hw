@@ -1,0 +1,58 @@
+.react-modal-component-hw {
+    position: absolute;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.42);
+}
+
+.react-modal-component-hw-container {
+    width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #ffffff;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+
+.react-modal-component-hw-icon {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.4s ease;
+}
+
+.react-modal-component-hw-icon:hover {
+    opacity: 1;
+}
+
+.react-modal-component-hw-header {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+}
+
+.react-modal-component-hw-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #393939;
+    margin-bottom: 0.5rem;
+}
+
+.react-modal-component-hw-description {
+    font-size: 0.775rem;
+    color: #71717a;
+}
+
+.react-modal-component-hw-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}

@@ -1,6 +1,7 @@
 import { X } from 'lucide-react';
 import './modal.css';
 import clsx from 'clsx';
+import React from 'react';
 
 export const Modal = ({ className, open, children }) => (open ? <div className={clsx('react-modal-component-hw', className)}>{children}</div> : null);
 
