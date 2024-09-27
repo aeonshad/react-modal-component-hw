@@ -1,6 +1,6 @@
 {
     "name": "react-modal-component-hw",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "private": false,
     "description": "A simple, modular and customizable modal window component for React applications, compatible with Tailwind CSS, allowing easy management of modal windows with styling and accessibility options",
     "author": "Aeonshad",
