@@ -16,6 +16,7 @@ A simple, modular and customizable modal window component for React applications
 -   [Accessibility](#accessibility)
 -   [Custom Styles](#custom-styles)
 -   [Customization](#customization)
+-   [Demonstration](#demonstration)
 -   [License](#license)
 
 ## Installation
@@ -225,6 +226,12 @@ const App = () => {
 
 export default App;
 ```
+
+## Demonstration
+
+You can see the demo of this modal component at the following address: [https://aeonshad.github.io/react-modal-component-hw/](https://aeonshad.github.io/react-modal-component-hw/)
+
+The source code is available at this address: [https://github.com/aeonshad/react-modal-component-hw](https://github.com/aeonshad/react-modal-component-hw/)
 
 ## License
 
