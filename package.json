@@ -1,15 +1,15 @@
 {
     "name": "react-modal-component-hw",
-    "version": "1.0.6",
+    "version": "2.0.0",
     "private": false,
     "description": "A simple, modular and customizable modal window component for React applications, compatible with Tailwind CSS, allowing easy management of modal windows with styling and accessibility options",
     "author": "Aeonshad",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/aeonshad/react-modal-component-hw"
+        "url": "git+https://github.com/aeonshad/react-modal-component-hw.git"
     },
-    "homepage": "http:/aeonshad.github.io/react-modal-component-hw",
+    "homepage": ".",
     "main": "dist/Modal.js",
     "files": [
         "dist/*"
@@ -26,21 +26,29 @@
         "user interface",
         "popup",
         "dialog",
-        "tailwind",
         "modular",
-        "accessibility"
+        "accessibility",
+        "A11y",
+        "simple",
+        "en",
+        "fr",
+        "english",
+        "french",
+        "français",
+        "anglais",
+        "ease",
+        "easy"
     ],
     "dependencies": {
         "clsx": "^2.1.1",
         "lucide-react": "^0.446.0",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
-        "react-modal-component-hw": "^1.0.4",
         "react-scripts": "5.0.1"
     },
     "scripts": {
         "start": "react-scripts start",
-        "dist": "NODE_ENV=production babel src/components --out-dir dist --copy-files",
+        "dist": "NODE_ENV=production babel src/components/pkg --out-dir dist --copy-files",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",

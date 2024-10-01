@@ -1,5 +1,4 @@
 import { X } from 'lucide-react';
-import './modal.css';
 import clsx from 'clsx';
 import React from 'react';
 export const Modal = ({
